@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Aircraft Lights")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e32eedbf58779955a558d8acd8a3e16b56975e2b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a908ca7ad8e268187ed5aa8d5efff1ca4d1ae471")]
 [assembly: System.Reflection.AssemblyProductAttribute("Aircraft Lights")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Aircraft Lights")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

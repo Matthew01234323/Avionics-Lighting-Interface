@@ -4,18 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aircraft_Light_System
+namespace Aircraft_Lights
 {
     public abstract class Light
     {
         private string lightId;
         private bool isOn = false;
         private bool isFault = false;
-        private string colour;
 
         protected Light(string id)
         {
             lightId = id;
+        }
+        public string LightId
+        {
+            get { return lightId; }
+        }
+        public bool IsOn
+        {
+            get { return isOn; }
+        }
+
+        public bool IsFault
+        { 
+        get { return isFault; }
         }
 
         // Turn on light if no fault, update GUI and log event
@@ -35,7 +47,7 @@ namespace Aircraft_Light_System
         public virtual bool TurnOff()
         {
             isOn = false;
-            GUI.UpdateLightStatus(lightId, isOn);
+            GUI.UpdateLightStatus(LightId, isOn);
             LogFile.WriteEvent(FlightInfo.CurrentTime, lightId, "turned OFF");
             return true;
         }

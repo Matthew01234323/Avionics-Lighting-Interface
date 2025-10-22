@@ -11,26 +11,33 @@ namespace Aircraft_Lights
         // Brightness level from 1 (dim) to 10 (bright), default is 5
         private int brightness = 5;
 
-        protected DimmingLight(string id) : base(id)
-        {
-
-        }
         public int Brightness
         {
             get { return brightness; }
-
-            // Set brightness within valid range and log event
-            set
-            {
-                if (value >= 1 && value <= 10)
-                {
-                    brightness = value;
-                    LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, $"brightness set to {brightness}");
-                }
-            }
+            set { brightness = value; }
+        }
+        public DimmingLight(string id) : base(id)
+        {
 
         }
+
+        // Set brightness within valid range, update GUI and log event
+        public void SetBrightness(int value)
+        {
+            if (value >= 1 && value <= 10)
+            {
+                Brightness = value;
+                GUI.UpdateLightStatus(LightId, IsOn, IsFault, IsDisabled, IsEmergency, Colour, Brightness);
+                LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, $"brightness set to {Brightness}");
+            }
+            else
+            {
+                LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, $"invalid brightness value: {value}");
+            }
+        }
+
     }
 }
+
 
 

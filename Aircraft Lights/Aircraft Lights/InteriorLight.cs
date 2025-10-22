@@ -40,7 +40,7 @@ namespace Aircraft_Lights
         {
             IsDisabled = true;
             base.TurnOff();
-            GUI.UpdateLightStatus(LightId, Colour, IsDisabled, IsEmergency);
+            GUI.UpdateLightStatus(LightId, IsOn, IsFault, IsDisabled, IsEmergency, Colour);
             LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, "DISABLED");
         }
 
@@ -48,7 +48,7 @@ namespace Aircraft_Lights
         public void Enable()
         {
             IsDisabled = false;
-            GUI.UpdateLightStatus(LightId, Colour, IsDisabled, IsEmergency);
+            GUI.UpdateLightStatus(LightId, IsOn, IsFault, IsDisabled, IsEmergency, Colour);
             LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, "ENABLED");
         }
 
@@ -66,10 +66,11 @@ namespace Aircraft_Lights
             }
         }
 
-        // Set the colour of the light and log event
+        // Set the colour of the light, log event and update GUI
         public void SetColour(string newColour)
         {
             Colour = newColour;
+            GUI.UpdateLightStatus(LightId, IsOn, IsFault, IsDisabled, IsEmergency, Colour);
             LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, "Colour set to " + newColour);
         }
         // Activate emergency mode: set colour to Red, update GUI and log event
@@ -79,7 +80,7 @@ namespace Aircraft_Lights
             
             IsEmergency = true;
             SetColour("Red");
-            GUI.UpdateLightStatus(LightId, Colour, IsDisabled, IsEmergency);
+            GUI.UpdateLightStatus(LightId, IsOn, IsFault, IsDisabled, IsEmergency, Colour);
             LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, "Set to Emergency Mode");
             return base.TurnOn();
                   
@@ -91,7 +92,7 @@ namespace Aircraft_Lights
             IsEmergency = false;
             IsDisabled = false;
             SetColour("White");
-            GUI.UpdateLightStatus(LightId, Colour, IsDisabled, IsEmergency);
+            GUI.UpdateLightStatus(LightId, IsOn, IsFault, IsDisabled, IsEmergency, Colour);
             LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, "Emergency Mode OFF, colour set to White, light ENABLED");
         }
     }

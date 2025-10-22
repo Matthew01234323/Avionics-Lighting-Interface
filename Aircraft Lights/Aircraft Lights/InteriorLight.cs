@@ -1,8 +1,6 @@
-﻿using Aircraft_Lights;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,23 +8,26 @@ namespace Aircraft_Lights
 {
     public abstract class InteriorLight : Light
     {
-        private bool disabled = false;
-        private bool isEmergencyMode = false;
+        private bool isDisabled = false;
+        private bool isEmergency = false;
         private string colour = "White";
 
-        public bool Disabled
+        public bool IsDisabled
         {
-            get { return disabled; }
+            get { return isDisabled; }
+            set { isDisabled = value; }
         }
 
-        public bool EmergencyModeStatus
+        public bool IsEmergency
         {
-            get { return isEmergencyMode; }
+            get { return isEmergency; }
+            set { isEmergency = value; }
         }
 
         public string Colour
         {
             get { return colour; }
+            set { colour = value; }
         }
 
         public InteriorLight(string id) : base(id)
@@ -37,24 +38,24 @@ namespace Aircraft_Lights
         // Disable local control of the light, update GUI and log event
         public void Disable()
         {
-            disabled = true;
+            IsDisabled = true;
             base.TurnOff();
-            GUI.UpdateLightStatus(LightId, disabled);
+            GUI.UpdateLightStatus(LightId, Colour, IsDisabled, IsEmergency);
             LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, "DISABLED");
         }
 
         // Enable local control of the light, update GUI and log event
         public void Enable()
         {
-            disabled = false;
-            GUI.UpdateLightStatus(LightId, disabled);
+            IsDisabled = false;
+            GUI.UpdateLightStatus(LightId, Colour, IsDisabled, IsEmergency);
             LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, "ENABLED");
         }
 
         // Control TurnOn based on disabled status and log event
         public override bool TurnOn()
         {
-            if (!disabled)
+            if (!IsDisabled)
             {
                 return base.TurnOn();
             }
@@ -66,19 +67,19 @@ namespace Aircraft_Lights
         }
 
         // Set the colour of the light and log event
-        public void SetColour(string colour)
+        public void SetColour(string newColour)
         {
-            this.colour = colour;
-            LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, "Colour set to " + colour);
+            Colour = newColour;
+            LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, "Colour set to " + newColour);
         }
         // Activate emergency mode: set colour to Red, update GUI and log event
 
         public bool EmergencyModeOn()
         {
             
-            isEmergencyMode = true;
+            IsEmergency = true;
             SetColour("Red");
-            GUI.UpdateLightStatus(LightId, isEmergencyMode);
+            GUI.UpdateLightStatus(LightId, Colour, IsDisabled, IsEmergency);
             LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, "Set to Emergency Mode");
             return base.TurnOn();
                   
@@ -87,11 +88,10 @@ namespace Aircraft_Lights
         // Deactivate emergency mode: set colour to White, enable light, update GUI and log event
         public void EmergencyModeOff()
         {
-            isEmergencyMode = false;
-            disabled = false;
+            IsEmergency = false;
+            IsDisabled = false;
             SetColour("White");
-            GUI.UpdateLightStatus(LightId, isEmergencyMode);
-            GUI.UpdateLightStatus(LightId, disabled);
+            GUI.UpdateLightStatus(LightId, Colour, IsDisabled, IsEmergency);
             LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, "Emergency Mode OFF, colour set to White, light ENABLED");
         }
     }

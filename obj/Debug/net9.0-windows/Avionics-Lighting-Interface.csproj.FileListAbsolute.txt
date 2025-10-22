@@ -1,0 +1,15 @@
+c:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\bin\Debug\net9.0-windows\Avionics-Lighting-Interface.exe
+C:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\bin\Debug\net9.0-windows\Avionics-Lighting-Interface.deps.json
+C:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\bin\Debug\net9.0-windows\Avionics-Lighting-Interface.runtimeconfig.json
+c:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\bin\Debug\net9.0-windows\Avionics-Lighting-Interface.dll
+c:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\bin\Debug\net9.0-windows\Avionics-Lighting-Interface.pdb
+c:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\obj\Debug\net9.0-windows\Avionics-Lighting-Interface.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\obj\Debug\net9.0-windows\Avionics-Lighting-Interface.AssemblyInfoInputs.cache
+c:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\obj\Debug\net9.0-windows\Avionics-Lighting-Interface.AssemblyInfo.cs
+c:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\obj\Debug\net9.0-windows\Avionics-Lighting-Interface.csproj.CoreCompileInputs.cache
+c:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\obj\Debug\net9.0-windows\Avionics-Lighting-Interface.sourcelink.json
+c:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\obj\Debug\net9.0-windows\Avionics-Lighting-Interface.dll
+c:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\obj\Debug\net9.0-windows\refint\Avionics-Lighting-Interface.dll
+c:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\obj\Debug\net9.0-windows\Avionics-Lighting-Interface.pdb
+C:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\obj\Debug\net9.0-windows\Avionics-Lighting-Interface.genruntimeconfig.cache
+C:\Users\Matthew\Desktop\LightingSystem\Avionics-Lighting-Interface\obj\Debug\net9.0-windows\ref\Avionics-Lighting-Interface.dll

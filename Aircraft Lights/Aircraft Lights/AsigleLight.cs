@@ -9,6 +9,7 @@ namespace Aircraft_Lights
     public class AisleLight : DimmingLight
     {
         private bool autoBrightnessEnabled = true;
+
         public AisleLight(string id) : base(id)
         {
 
@@ -16,17 +17,30 @@ namespace Aircraft_Lights
         public bool AutoBrightnessEnabled
         {
             get { return autoBrightnessEnabled; }
-            set
-            {
-                autoBrightnessEnabled = value;
-                LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, $"Auto-brightness set to {autoBrightnessEnabled}");
-            }
+            set { autoBrightnessEnabled = value; }
+
+        }
+
+        // Enable auto brightness, update GUI and log event
+        public void EnableAutoBrightness()
+        {
+            AutoBrightnessEnabled = true;
+            GUI.UpdateLightStatus(LightId, IsOn, IsFault, IsDisabled, IsEmergency, Colour, Brightness, AutoBrightnessEnabled);
+            LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, "Auto-brightness ENABLED");
+        }
+
+        // Disable auto brightness, update GUI and log event
+        public void DisableAutoBrightness()
+        {
+            AutoBrightnessEnabled = false;
+            GUI.UpdateLightStatus(LightId, IsOn, IsFault, IsDisabled, IsEmergency, Colour, Brightness, AutoBrightnessEnabled);
+            LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, "Auto-brightness DISABLED");
         }
 
         // Adjust brightness based on sunrise and sunset times if auto-brightness is enabled
         public void AdjustForTimeOfDay()
         {
-            if (autoBrightnessEnabled && IsOn)
+            if (AutoBrightnessEnabled && IsOn)
             {
                 TimeSpan currentTime = TimeInfo.CurrentTime;
                 TimeSpan daytimeStart = TimeInfo.SunriseTime;
@@ -41,11 +55,12 @@ namespace Aircraft_Lights
                     Brightness = 2;
                 }
 
+                GUI.UpdateLightStatus(LightId, IsOn, IsFault, IsDisabled, IsEmergency, Colour, Brightness, AutoBrightnessEnabled);
                 LogFile.WriteEvent(FlightInfo.CurrentTime, LightId, $"Adjusting brightness for time of day to {Brightness}");
 
             }
         }
     }
 }
-    
+
 

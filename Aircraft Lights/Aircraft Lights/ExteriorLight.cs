@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace Aircraft_Lights
+    
+namespace AircraftLightsGUI
 {
     public class ExteriorLight : Light
     {

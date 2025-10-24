@@ -281,16 +281,15 @@ namespace AircraftLightsGUI
         }
 
         // Shows the pop-up when a light is clicked
-        private void ShowLightContextMenu(StatusLight light, Point location)
-        {
+        private void ShowLightContextMenu(StatusLight light, Point location) {
             ContextMenuStrip menu = new ContextMenuStrip();
             menu.Items.Add($"{light.DisplayName}").Enabled = false;
             menu.Items.Add(new ToolStripSeparator());
 
-            void AddItem(string text, LightStatus status)
-            {
+            void AddItem(string text, LightStatus status) {
                 var item = new ToolStripMenuItem(text);
-                item.Click += (s, e) => SetLightStatus(light, status);
+//update here to call Joels method to update light status
+                //item.Click += (s, e) => SetLightStatus(light, status);
                 menu.Items.Add(item);
             }
 
@@ -302,10 +301,34 @@ namespace AircraftLightsGUI
             menu.Show(planePanel, location);
         }
 
-        // Updates a light status (ID, status)
-        private void SetLightStatus(StatusLight light, LightStatus status)
+        // Function called to update lights
+        private void SetLightStatus(StatusLight light, bool isFault, bool isEmergency, bool isOn)
         {
-            light.Status = status;
+            // Fault has highest priority
+            if (isFault)
+            { light.Status = LightStatus.Fault; }
+            // Emergency has second priority
+            else if (isEmergency)
+            { light.Status = LightStatus.Emergency; }
+            // IsOn has lowest priority
+            else if (isOn)
+            { light.Status = LightStatus.On; }
+            // If nothing is active, set to Off
+            else { light.Status = LightStatus.Off; }
+
+            planePanel.Invalidate();
+        }
+        
+        private void UpdateLightStatus(StatusLight light, bool isFault, bool isOn) {
+            // Fault has highest priority
+            if (isFault)
+            {light.Status = LightStatus.Fault;}
+            // IsOn has lowest priority
+            else if (isOn)
+            {light.Status = LightStatus.On;}
+            // If nothing is active, set to Off
+            else{light.Status = LightStatus.Off;}
+            
             planePanel.Invalidate();
         }
 

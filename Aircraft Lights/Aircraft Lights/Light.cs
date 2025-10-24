@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AircraftLightsGUI
+namespace Aircraft_Lights
 {
     public abstract class Light
     {

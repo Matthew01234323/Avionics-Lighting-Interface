@@ -8,26 +8,24 @@
     "net9.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Matthew\\.nuget\\packages\\": {}
+    "C:\\Users\\samho\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Matthew\\Desktop\\LightingSystem\\Avionics-Lighting-Interface\\Avionics-Lighting-Interface.csproj",
+      "projectUniqueName": "C:\\Users\\samho\\OneDrive\\Documents\\B&FC\\Year 2\\Object Oriented Programming\\Assignment 2\\Local_Repo\\Avionics-Lighting-Interface\\Avionics-Lighting-Interface\\Avionics-Lighting-Interface.csproj",
       "projectName": "Avionics-Lighting-Interface",
-      "projectPath": "C:\\Users\\Matthew\\Desktop\\LightingSystem\\Avionics-Lighting-Interface\\Avionics-Lighting-Interface.csproj",
-      "packagesPath": "C:\\Users\\Matthew\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Matthew\\Desktop\\LightingSystem\\Avionics-Lighting-Interface\\obj\\",
+      "projectPath": "C:\\Users\\samho\\OneDrive\\Documents\\B&FC\\Year 2\\Object Oriented Programming\\Assignment 2\\Local_Repo\\Avionics-Lighting-Interface\\Avionics-Lighting-Interface\\Avionics-Lighting-Interface.csproj",
+      "packagesPath": "C:\\Users\\samho\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\samho\\OneDrive\\Documents\\B&FC\\Year 2\\Object Oriented Programming\\Assignment 2\\Local_Repo\\Avionics-Lighting-Interface\\Avionics-Lighting-Interface\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Matthew\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\samho\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0-windows"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -46,7 +44,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0-windows7.0": {
@@ -70,7 +68,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

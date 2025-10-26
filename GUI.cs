@@ -36,7 +36,7 @@ namespace AircraftLightsGUI
             public PointF Position { get; set; } // Position
             public LightStatus Status { get; set; } // State
             public float Radius { get; set; } = 8f; // Size (of the circle)
-            public bool IsAisleLight { get; set; } = false; 
+            public bool IsAisleLight { get; set; } = false;
             public float Height { get; set; } = 30f; // Size (Seperate for isle lights)
 
             // Detects if a light has been clicked
@@ -170,7 +170,7 @@ namespace AircraftLightsGUI
             });
         }
 
-          private void PlanePanel_Paint(object sender, PaintEventArgs e)
+        private void PlanePanel_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
@@ -317,13 +317,6 @@ namespace AircraftLightsGUI
                 light.Status = anyNonEmergency ? LightStatus.Emergency : LightStatus.Off;
 
             planePanel.Invalidate();
-        }
-
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.Run(new MainForm());
         }
     }
 }

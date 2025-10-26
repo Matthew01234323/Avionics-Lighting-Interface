@@ -83,10 +83,10 @@ namespace AircraftLightsGUI {
             Controls.Add(planePanel);
             // Emergency button
             emergencyButton = new Button {
-                Text = "EMERGENCY",
+                Text = "Emergency",
                 Location = new Point(10, 415),
                 Size = new Size(100, 40),
-                Font = new Font("Arial", 9, FontStyle.Bold)
+                Font = new Font("Arial", 9)
             };
             emergencyButton.Click += EmergencyButton_Click;
             Controls.Add(emergencyButton);
@@ -209,7 +209,7 @@ namespace AircraftLightsGUI {
             }
         }
 
-        // Draws the 'key' for the colours
+        // Draws the 'key' for the colours on the top right of the GUI
         private void DrawLegend(Graphics g) {
             int keyX = 265, keyY = 30;
             using (Font keyFont = new Font("Arial", 10, FontStyle.Bold))
@@ -269,7 +269,7 @@ namespace AircraftLightsGUI {
 
             void AddItem(string text, LightStatus status) {
                 var item = new ToolStripMenuItem(text);
-//update here to call Joels method to update light status
+//update below to call Joels method to update light status
                 //item.Click += (s, e) => SetLightStatus(light, status);
                 menu.Items.Add(item);
             }
@@ -294,24 +294,34 @@ namespace AircraftLightsGUI {
             else { light.Status = LightStatus.Off; }
             planePanel.Invalidate();
         }
-        
+
         // The same function but without 'emergency' since not every light has that property
-        private void UpdateLightStatus(StatusLight light, bool isFault, bool isOn) {
+        private void UpdateLightStatus(StatusLight light, bool isFault, bool isOn)
+        {
             if (isFault)
-            {light.Status = LightStatus.Fault;}
+            { light.Status = LightStatus.Fault; }
             else if (isOn)
-            {light.Status = LightStatus.On;}
-            else{light.Status = LightStatus.Off;}
+            { light.Status = LightStatus.On; }
+            else { light.Status = LightStatus.Off; }
             planePanel.Invalidate();
         }
 
         // Emergency toggle
+        bool IsEmergency = false;
         private void EmergencyButton_Click(object sender, EventArgs e) {
-            bool anyNonEmergency = lights.Any(l => l.Status != LightStatus.Emergency);
-            foreach (var light in lights)
+            if (IsEmergency == false)
             {
-                if (light.ID.StartsWith("se")) {; light.Status = LightStatus.Off; }
-                else if (light.ID.StartsWith("co") || light.ID.StartsWith("ai")) { light.Status = anyNonEmergency ? LightStatus.Off : LightStatus.Emergency; }
+                IsEmergency = true;
+                foreach (var light in lights)
+                {
+                    if (light.ID.StartsWith("se")) {; light.Status = LightStatus.Off; }
+                    else if (light.ID.StartsWith("co") || light.ID.StartsWith("ai")) { light.Status = LightStatus.Emergency; }
+// add in code here which turns on emergency in the lights class
+                }
+            }
+            else{
+                IsEmergency = false;
+// add in code here which turns off emergency in the lights class
             }
             planePanel.Invalidate();
         }

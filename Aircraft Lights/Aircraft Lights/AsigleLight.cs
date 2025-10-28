@@ -40,7 +40,7 @@ namespace AircraftLightsGUI
         // Adjust brightness based on sunrise and sunset times if auto-brightness is enabled
         public void AdjustForTimeOfDay()
         {
-            if (AutoBrightnessEnabled && IsOn)
+            if (AutoBrightnessEnabled)
             {
                 TimeSpan currentTime = TimeInfo.CurrentTime;
                 TimeSpan daytimeStart = TimeInfo.SunriseTime;

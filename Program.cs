@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace AircraftLightsGUI
 {
-    static class Program
+    class Program
     {
         static public bool InFlight = false;
         static async Task Main()

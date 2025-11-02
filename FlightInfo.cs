@@ -15,6 +15,8 @@ namespace AircraftLightsGUI
         static string json_filename = "flight_data.json";
         static public DateTime current_time;
 
+        static Random rnd = new Random();
+
         //static public List<ExteriorLight> exterior_lights_list = new List<ExteriorLight>();
         //static public List<DimmingLight> dimming_lights_list = new List<DimmingLight>();
         //static public List<AsileLight> exterior_lights_list = new List<AsileLight>();
@@ -48,6 +50,8 @@ namespace AircraftLightsGUI
         
         static public void CheckEvents()
         {
+            int rnd_value;
+
             if (DateTime.Compare(current_time, landing_time) >= 0)
             {
                 LogFile.WriteEvent(current_time, "System", "Plane has landed");
@@ -55,7 +59,8 @@ namespace AircraftLightsGUI
             }
             else
             {
-               
+                rnd_value = rnd.Next(1, 101);
+                LogFile.WriteEvent(current_time, "System", $"random value is {rnd_value}");
             }
 
             current_time = current_time.AddMinutes(5);

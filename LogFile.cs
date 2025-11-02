@@ -7,8 +7,6 @@ namespace AircraftLightsGUI
         private static string file_path = "C:\\Users\\samho\\OneDrive\\Documents\\B&FC\\Year 2\\Object Oriented Programming\\Assignment 2\\Local_Repo\\Avionics-Lighting-Interface\\Avionics-Lighting-Interface\\Log_Files\\";
         private static string file_name = "lights_logfile.txt";
 
-        
-        
         public static void WriteEvent(DateTime time, string id, string event_type)
         {
             try

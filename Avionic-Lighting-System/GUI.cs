@@ -132,7 +132,7 @@ namespace AircraftLightsGUI {
                 float y = startY + (row - 1) * 45;
                 lights.Add(new StatusLight { ID = $"se{seatCounter:D2}", DisplayName = $"Seat {row}A", Position = new PointF(165, y) });
                 seatCounter++;
-                lights.Add(new StatusLight { ID = $"se{seatCounter:D2}B", DisplayName = $"Seat {row}B", Position = new PointF(205, y) });
+                lights.Add(new StatusLight { ID = $"se{seatCounter:D2}", DisplayName = $"Seat {row}B", Position = new PointF(205, y) });
                 seatCounter++;
             }
 
@@ -269,8 +269,9 @@ namespace AircraftLightsGUI {
 
             void AddItem(string text, LightStatus status) {
                 var item = new ToolStripMenuItem(text);
-//update below to call Joels method to update light status
+                //update below to call Joels method to update light status
                 //item.Click += (s, e) => SetLightStatus(light, status);
+                UpdateLightClass(light, status);
                 menu.Items.Add(item);
             }
 
@@ -283,8 +284,7 @@ namespace AircraftLightsGUI {
         }
 
         // Function called to update lights
-        private void SetLightStatus(StatusLight light, bool isFault, bool isEmergency, bool isOn)
-        {
+        private void SetLightStatus(StatusLight light, bool isFault, bool isEmergency, bool isOn) {
             if (isFault)
             { light.Status = LightStatus.Fault; }
             else if (isEmergency)
@@ -296,8 +296,7 @@ namespace AircraftLightsGUI {
         }
 
         // The same function but without 'emergency' since not every light has that property
-        private void UpdateLightStatus(StatusLight light, bool isFault, bool isOn)
-        {
+        private void UpdateLightStatus(StatusLight light, bool isFault, bool isOn) {
             if (isFault)
             { light.Status = LightStatus.Fault; }
             else if (isOn)
@@ -309,21 +308,45 @@ namespace AircraftLightsGUI {
         // Emergency toggle
         bool IsEmergency = false;
         private void EmergencyButton_Click(object sender, EventArgs e) {
-            if (IsEmergency == false)
-            {
+            if (IsEmergency == false) {
                 IsEmergency = true;
-                foreach (var light in lights)
-                {
-                    if (light.ID.StartsWith("se")) {; light.Status = LightStatus.Off; }
-                    else if (light.ID.StartsWith("co") || light.ID.StartsWith("ai")) { light.Status = LightStatus.Emergency; }
-// add in code here which turns on emergency in the lights class
-                }
+                UpdateLightClass("ai01", emergency);
+                UpdateLightClass("ai02", emergency);
+                UpdateLightClass("ai03", emergency);
+                UpdateLightClass("co00", emergency);
+                UpdateLightClass("co01", emergency);
+                UpdateLightClass("co02", emergency);
+                
             }
-            else{
+            else {
                 IsEmergency = false;
-// add in code here which turns off emergency in the lights class
+                UpdateLightClass("ai01", emergencyoff);
+                UpdateLightClass("ai02", emergencyoff);
+                UpdateLightClass("ai03", emergencyoff);
+                UpdateLightClass("co00", emergencyoff);
+                UpdateLightClass("co01", emergencyoff);
+                UpdateLightClass("co02", emergencyoff);
             }
             planePanel.Invalidate();
+        }
+
+        private void UpdateLightClass(String lightID, string status) {
+            var light = lights.FirstOrDefault(light => light.ID == lightID);
+            switch (status.ToLower()) {
+                case "off":
+                    Light.TurnOff;
+                case "on":
+                    Light.TurnOn;
+                case "fault":
+                    Light.Fault(true);
+                case "emergency":
+                    Light.EmergencyModeOn;
+                    break;
+                case "emergencyoff":
+                    Light.EmergencyModeOff;
+            } 
+            if (status != "Fault") { Light.Fault(false); }
+
         }
     }
 }

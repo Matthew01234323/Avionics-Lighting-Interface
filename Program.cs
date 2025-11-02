@@ -8,14 +8,17 @@ using System.Windows.Forms;
 
 namespace AircraftLightsGUI
 {
-    class Program
+    static class Program
     {
+        static public bool InFlight = false;
         static void Main()
         {
             FlightInfo.ReadFlightInfo();
 
-            LogFile.WriteEvent(DateTime.Now, "Test", "testing");
-            LogFile.WriteEvent(DateTime.Now, "Test2", "still testing");
+            while(InFlight)
+            {
+                
+            }
         }
     }
 

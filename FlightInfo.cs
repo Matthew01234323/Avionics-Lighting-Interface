@@ -10,7 +10,7 @@ namespace AircraftLightsGUI
         static DateTime landing_time;
         static DateTime sunset_time;
         static DateTime sunrise_time;
-        static string json_filepath = "C:\\Users\\samho\\OneDrive\\Documents\\B&FC\\Year 2\\Object Oriented Programming\\Assignment 2\\Local_Repo\\Avionics-Lighting-Interface\\Avionics-Lighting-Interface\\Flight_Info_File";
+        static string json_filepath = "C:\\Users\\samho\\OneDrive\\Documents\\B&FC\\Year 2\\Object Oriented Programming\\Assignment 2\\Local_Repo\\Avionics-Lighting-Interface\\Avionics-Lighting-Interface\\Flight_Info_File\\";
         static string json_filename = "flight_data.json";
         public static DateTime current_time;
 
@@ -33,7 +33,7 @@ namespace AircraftLightsGUI
             }
             catch (Exception e)
             {
-                LogFile.WriteEvent(DateTime.Now, "System", "Error when reading flight info file");
+                LogFile.WriteEvent(DateTime.Now, "System", $"Error when reading flight info file: {e}");
             }
         }
     }

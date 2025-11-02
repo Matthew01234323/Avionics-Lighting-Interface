@@ -12,6 +12,8 @@ namespace AircraftLightsGUI
     {
         static void Main()
         {
+            FlightInfo.ReadFlightInfo();
+
             LogFile.WriteEvent(DateTime.Now, "Test", "testing");
             LogFile.WriteEvent(DateTime.Now, "Test2", "still testing");
         }

@@ -15,8 +15,6 @@ namespace AircraftLightsGUI
             FlightInfo Flight_Info = new();
             LogFile Log_File = new();
 
-            Log_File.SetFileName(Flight_Info);
-
             Log_File.WriteEvent(DateTime.Now, "Test", "testing");
         }
     }

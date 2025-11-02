@@ -12,7 +12,6 @@ namespace AircraftLightsGUI
     {
         static void Main()
         {
-
             LogFile.WriteEvent(DateTime.Now, "Test", "testing");
             LogFile.WriteEvent(DateTime.Now, "Test2", "still testing");
         }

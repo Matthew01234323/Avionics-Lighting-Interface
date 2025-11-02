@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Avionics-Lighting-Interface")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b587aa449c77781aa6244886d6c7182024691ddd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a5be2dbc149053928371181dfbb0688d55801fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("Avionics-Lighting-Interface")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Avionics-Lighting-Interface")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

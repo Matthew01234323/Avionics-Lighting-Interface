@@ -16,6 +16,7 @@ namespace AircraftLightsGUI
             LogFile Log_File = new();
 
             Log_File.WriteEvent(DateTime.Now, "Test", "testing");
+            Log_File.WriteEvent(DateTime.Now, "Test2", "still testing");
         }
     }
 

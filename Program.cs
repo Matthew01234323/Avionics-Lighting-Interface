@@ -12,11 +12,9 @@ namespace AircraftLightsGUI
     {
         static void Main()
         {
-            FlightInfo Flight_Info = new();
-            LogFile Log_File = new();
 
-            Log_File.WriteEvent(DateTime.Now, "Test", "testing");
-            Log_File.WriteEvent(DateTime.Now, "Test2", "still testing");
+            LogFile.WriteEvent(DateTime.Now, "Test", "testing");
+            LogFile.WriteEvent(DateTime.Now, "Test2", "still testing");
         }
     }
 

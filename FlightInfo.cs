@@ -2,16 +2,16 @@
 
 namespace AircraftLightsGUI
 {
-    public class FlightInfo
+    public static class FlightInfo
     {
-        DateTime takeoff_time;
-        DateTime landing_time;
-        DateTime sunset_time;
-        DateTime sunrise_time;
-        string json_filepath = "";
-        public DateTime current_time;
+        static DateTime takeoff_time;
+        static DateTime landing_time;
+        static DateTime sunset_time;
+        static DateTime sunrise_time;
+        static string json_filepath = "";
+        public static DateTime current_time;
 
-            public void ReadFlightInfo()
+            public static void ReadFlightInfo()
         {
             
         }

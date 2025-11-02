@@ -2,14 +2,14 @@ using System.IO;
 
 namespace AircraftLightsGUI
 {
-    public class LogFile
+    public static class LogFile
     {
-        private string file_path = "C:\\Users\\samho\\OneDrive\\Documents\\";
-        private string file_name = "lights_logfile.txt";
+        private static string file_path = "C:\\Users\\samho\\OneDrive\\Documents\\";
+        private static string file_name = "lights_logfile.txt";
 
         
         
-        public void WriteEvent(DateTime time, string id, string event_type)
+        public static void WriteEvent(DateTime time, string id, string event_type)
         {
             try
             {

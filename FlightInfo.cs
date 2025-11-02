@@ -54,13 +54,79 @@ namespace AircraftLightsGUI
 
             if (DateTime.Compare(current_time, landing_time) >= 0)
             {
+                // foreach(Light l in all_lights_list)
+                // {
+                //     if (l.IsOn)
+                //     {
+                //         l.TurnOff
+                //     }
+                // }
                 LogFile.WriteEvent(current_time, "System", "Plane has landed");
                 Program.InFlight = false;
             }
             else
             {
-                rnd_value = rnd.Next(1, 101);
-                LogFile.WriteEvent(current_time, "System", $"random value is {rnd_value}");
+                if (DateTime.Compare(current_time, sunset_time) > 0 && DateTime.Compare(current_time, sunrise_time) < 0)
+                {
+                    // foreach(ExteriorLight el in exterior_lights_list)
+                    // {
+                    //     if (!el.IsOn)
+                    //     {
+                    //         el.TurnOn();
+                    //     }
+
+                    // }
+
+                    // foreach(AsileLight al in asile_lights_list)
+                    // {
+                    //     if (al.brightness != 3)
+                    //     {
+                    //         al.brightness = 3;
+                    //     }
+                    // }
+                }
+                else
+                {
+                    // foreach(ExteriorLight el in exterior_lights_list)
+                    // {
+                    //     if (el.IsOn)
+                    //     {
+                    //         el.TurnOff();
+                    //     }
+
+                    // }
+                    // foreach(AsileLight al in asile_lights_list)
+                    // {
+                    //     if (al.brightness != 5)
+                    //     {
+                    //         al.brightness = 5;
+                    //     }
+                    // }
+                }
+                
+                // foreach(DimmingLight dl in dimming_lights_list)
+                // {
+                //     if (!dl.IsFault)
+                //     {
+                //         rnd_value = rnd.Next(1, 101);
+
+                //         if (rnd_value == 1)
+                //         {
+                //             dl.IsFault = true;
+                //         }
+                //         else if (rnd_value > 90)
+                //         {
+                //             if (dl.IsOn)
+                //             {
+                //                 dl.TurnOff();
+                //             }
+                //             else
+                //             {
+                //                 dl.TurnOn();
+                //             }
+                //         }
+                //     }
+                // }
             }
 
             current_time = current_time.AddMinutes(5);

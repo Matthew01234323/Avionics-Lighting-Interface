@@ -15,6 +15,12 @@ namespace AircraftLightsGUI
         static string json_filename = "flight_data.json";
         static public DateTime current_time;
 
+        //static public List<ExteriorLight> exterior_lights_list = new List<ExteriorLight>();
+        //static public List<DimmingLight> dimming_lights_list = new List<DimmingLight>();
+        //static public List<AsileLight> exterior_lights_list = new List<AsileLight>();
+        //static public List<InteriorLight> exterior_lights_list = new List<InteriorLight>();
+        //static public List<Light> all_lights_list = new List<Light>();
+
         public static void ReadFlightInfo()
         {
             try
@@ -49,7 +55,7 @@ namespace AircraftLightsGUI
             }
             else
             {
-               LogFile.WriteEvent(current_time, "System", "Plane in flight"); 
+               
             }
 
             current_time = current_time.AddMinutes(5);

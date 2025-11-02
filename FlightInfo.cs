@@ -1,3 +1,4 @@
+using System.ComponentModel.Design.Serialization;
 using System.IO;
 using System.Text.Json;
 
@@ -17,7 +18,18 @@ namespace AircraftLightsGUI
         {
             try
             {
+                using FileStream json_stream = new FileStream($"{json_filepath}{json_filename}", FileMode.Open, FileAccess.Read);
+                using JsonDocument doc = JsonDocument.Parse(json_stream);
+                JsonElement root = doc.RootElement;
 
+                takeoff_time = root.GetProperty("takeoff_time").GetDateTime();
+                landing_time = root.GetProperty("landing_time").GetDateTime();
+                sunset_time = root.GetProperty("sunset_time").GetDateTime();
+                sunrise_time = root.GetProperty("sunrise_time").GetDateTime();
+
+                current_time = takeoff_time;
+
+                LogFile.WriteEvent(current_time, "System", "Flight Info read successfully");
             }
             catch (Exception e)
             {

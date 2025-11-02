@@ -10,7 +10,9 @@ namespace AircraftLightsGUI
 
         public void SetFileName(FlightInfo flight_info)
         {
-            file_name = $"Flight_{flight_info.flight_number}";
+            file_name = $"Flight_{flight_info.flight_number}.txt";
+
+            File.Create($"{file_path}{file_name}").Dispose();
 
             sw = new StreamWriter($"{file_path}{file_name}");
         }

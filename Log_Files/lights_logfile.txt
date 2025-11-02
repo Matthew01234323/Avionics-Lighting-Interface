@@ -1,3 +1,14 @@
 01/11/2025 18:00:00 System: Flight Info read successfully
-02/11/2025 10:59:47 Test: testing
-02/11/2025 10:59:47 Test2: still testing
+01/11/2025 18:00:00 System: Plane in flight
+01/11/2025 18:05:00 System: Plane in flight
+01/11/2025 18:10:00 System: Plane in flight
+01/11/2025 18:15:00 System: Plane in flight
+01/11/2025 18:20:00 System: Plane in flight
+01/11/2025 18:25:00 System: Plane in flight
+01/11/2025 18:30:00 System: Plane in flight
+01/11/2025 18:35:00 System: Plane in flight
+01/11/2025 18:40:00 System: Plane in flight
+01/11/2025 18:45:00 System: Plane in flight
+01/11/2025 18:50:00 System: Plane in flight
+01/11/2025 18:55:00 System: Plane in flight
+01/11/2025 19:00:00 System: Plane has landed

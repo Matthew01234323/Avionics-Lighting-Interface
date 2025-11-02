@@ -42,10 +42,17 @@ namespace AircraftLightsGUI
         
         static public void CheckEvents()
         {
-            if (Program.InFlight)
+            if (DateTime.Compare(current_time, landing_time) >= 0)
             {
-                
+                LogFile.WriteEvent(current_time, "System", "Plane has landed");
+                Program.InFlight = false;
             }
+            else
+            {
+               LogFile.WriteEvent(current_time, "System", "Plane in flight"); 
+            }
+
+            current_time = current_time.AddMinutes(5);
         }
     }
 }

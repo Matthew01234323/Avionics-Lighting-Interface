@@ -4,7 +4,6 @@ namespace AircraftLightsGUI
 {
     public class FlightInfo
     {
-        public string flight_number = "0";
         DateTime takeoff_time;
         DateTime landing_time;
         DateTime sunset_time;

@@ -11,8 +11,7 @@ namespace AircraftLightsGUI
     {
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.Run(new MainForm());
+
         }
     }
 
